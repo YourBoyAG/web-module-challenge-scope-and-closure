@@ -61,6 +61,9 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+
+closure is a comnination of functions and their environment which allows logic/content to be accessed from the outside inwards as functions are nested. Keeps a running memory of content.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -82,9 +85,16 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+Closure is used in the 'return function' line as a new function is being created to reference the variables 'dansRoll' and 'zoesRoll'. The data is able to be accessed even if the out functions are done executing.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+
+
 c. What is the lexical scope of `newRoll`? 
 
+newRoll is only accessible within the returned function and cannot be console logged outside of this function as it would return undefined.
 
 ### Task 3 - Stretch Goals
 
@@ -95,9 +105,15 @@ See if you can complete one or more of the following challenges:
 1. Write a function that would allow you to do this using a closure. (This is another interview question we've seen before - when you're ready for answers, view an explanation [here](https://www.coderbyte.com/algorithm/3-common-javascript-closure-questions)).
 
 ```js
+function createBase(baseNumber) {
+  return function(number) {
+    return baseNumber + number;
+  }
+}
+
 var addSix = createBase(6);
-addSix(10); // returns 16
-addSix(21); // returns 27
+//console.log(addSix(10));
+//console.log(addSix(21));
 ```
 
 2. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
